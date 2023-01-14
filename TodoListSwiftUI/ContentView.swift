@@ -9,10 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-        
-        //test
+        NavigationView {
+            TodoView(todoList: TodoModel())
+        }
     }
 }
 

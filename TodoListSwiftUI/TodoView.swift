@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TodoView: View {
     
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject var todoList : TodoModel
+    let saveAction: () -> Void
     
     var body: some View {
         List {
@@ -49,11 +51,16 @@ struct TodoView: View {
                 }
             }
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction() }
+        }
     }
 }
 
 struct TodoView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoView(todoList: TodoModel())
+        TodoView(todoList: TodoModel()) {
+            
+        }
     }
 }

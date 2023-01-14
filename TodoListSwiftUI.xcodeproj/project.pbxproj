@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		781C241029733EB60053C421 /* TodoListSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C240F29733EB60053C421 /* TodoListSwiftUIApp.swift */; };
-		781C241229733EB60053C421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C241129733EB60053C421 /* ContentView.swift */; };
 		781C241429733EBC0053C421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 781C241329733EBC0053C421 /* Assets.xcassets */; };
 		781C241729733EBC0053C421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 781C241629733EBC0053C421 /* Preview Assets.xcassets */; };
 		781C242129733EBC0053C421 /* TodoListSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C242029733EBC0053C421 /* TodoListSwiftUITests.swift */; };
@@ -40,7 +39,6 @@
 /* Begin PBXFileReference section */
 		781C240C29733EB60053C421 /* TodoListSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		781C240F29733EB60053C421 /* TodoListSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListSwiftUIApp.swift; sourceTree = "<group>"; };
-		781C241129733EB60053C421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		781C241329733EBC0053C421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		781C241629733EBC0053C421 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		781C241C29733EBC0053C421 /* TodoListSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				781C240F29733EB60053C421 /* TodoListSwiftUIApp.swift */,
-				781C241129733EB60053C421 /* ContentView.swift */,
 				781C2439297345920053C421 /* TodoView.swift */,
 				781C241329733EBC0053C421 /* Assets.xcassets */,
 				781C241529733EBC0053C421 /* Preview Content */,
@@ -273,7 +270,6 @@
 				781C243A297345920053C421 /* TodoView.swift in Sources */,
 				781C243C297346660053C421 /* TodoRowView.swift in Sources */,
 				781C2440297346B00053C421 /* TodoModel.swift in Sources */,
-				781C241229733EB60053C421 /* ContentView.swift in Sources */,
 				781C241029733EB60053C421 /* TodoListSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,58 @@ import Foundation
 public class TodoModel: ObservableObject, Identifiable {
     
     @Published var todos : [Todo] = []
+    
+    // implement persistent store
+    
+    private static func fileURL() throws -> URL {
+        try FileManager.default.url(for: .documentDirectory,
+                                       in: .userDomainMask,
+                                       appropriateFor: nil,
+                                       create: false)
+            .appendingPathComponent("todos.data")
+    }
+    
+    static func load(completion: @escaping (Result<[Todo], Error>)->Void) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let fileURL = try fileURL()
+                guard let file = try? FileHandle(forReadingFrom: fileURL) else {
+                    DispatchQueue.main.async {
+                        completion(.success([]))
+                    }
+                    return
+                }
+                let todos = try JSONDecoder().decode([Todo].self, from: file.availableData)
+                DispatchQueue.main.async {
+                    completion(.success(todos))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    static func save(todos: [Todo], completion: @escaping (Result<Int, Error>)->Void) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let data = try JSONEncoder().encode(todos)
+                let outfile = try fileURL()
+                try data.write(to: outfile)
+                DispatchQueue.main.async {
+                    completion(.success(todos.count))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
 
+    // helper functions 
+    
     func addTodo(todo: Todo, index: Int? = nil) {
         todos.insert(
             Todo(
@@ -31,7 +82,7 @@ public class TodoModel: ObservableObject, Identifiable {
     }
 }
 
-struct Todo: Identifiable, Equatable, Hashable {
+struct Todo: Identifiable, Equatable, Hashable, Codable {
     
     var id: UUID
     var title: String
